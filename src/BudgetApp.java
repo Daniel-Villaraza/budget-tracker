@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class BudgetApp {
     public static void main(String[] args) {
+        BudgetCategory groceries = new BudgetCategory("Groceries", 100, 50);
+        System.out.println(groceries);
+
         Scanner scan = new Scanner(System.in);
 
         while(scan.hasNextLine()) {
