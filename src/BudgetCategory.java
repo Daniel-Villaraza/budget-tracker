@@ -21,18 +21,6 @@ public class BudgetCategory {
         return spending;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
-
-    public void setSpending(double spending) {
-        this.spending = spending;
-    }
-
     public String toString() {
         return category.toUpperCase() + "\nBudget: " + budget + "\nSpending: " + spending;
     }
