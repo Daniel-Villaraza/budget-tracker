@@ -19,16 +19,27 @@ public class BudgetApp {
             double spent = scanner.nextDouble();
             BudgetCategory category = new BudgetCategory(categoryStr, limit, spent);
 
+            
             if (scanner.hasNextLine()) scanner.nextLine();
-
+            
+            // add category to categories ArrayList
             categories.add(idx, category);
+            
+            // print individual categories
             System.out.println(categories.get(idx));
+            
+            // increase idx each iteration
             idx++;
         }
-
-        Collections.sort(categories);
+        
+        // sort the categories ArrayList in reverse order
+        Collections.sort(categories, Collections.reverseOrder());
+        
+        // print categories
         System.out.println(categories);
-
+        
+        // print the sum of each budget difference for each category
+        System.out.println(budgetDifference(categories));
     }
 
     /**
@@ -44,9 +55,12 @@ public class BudgetApp {
      * @return the total amount over/under budget
      */
     public static int budgetDifference(List<BudgetCategory> categories) {
-        // TODO: You will implement this method in Wave 4
-        // Note that this method SHOULD NOT have a print statement.
-        // It should instead return the value.
-        return -1;
+        int sum = 0;
+
+        for (BudgetCategory category : categories) {
+            sum += category.getlimit() - category.getSpending();
+        }
+
+        return sum;
     }
 }
