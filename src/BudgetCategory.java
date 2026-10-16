@@ -1,11 +1,11 @@
 public class BudgetCategory {
     private String category;
-    private double budget;
+    private double limit;
     private double spending;
 
-    public BudgetCategory(String category, double budget, double spending) {
+    public BudgetCategory(String category, double limit, double spending) {
         this.category = category;
-        this.budget = budget;
+        this.limit = limit;
         this.spending = spending;
     }
 
@@ -13,8 +13,8 @@ public class BudgetCategory {
         return category;
     }
 
-    public double getBudget() {
-        return budget;
+    public double getlimit() {
+        return limit;
     }
 
     public double getSpending() {
@@ -22,6 +22,6 @@ public class BudgetCategory {
     }
 
     public String toString() {
-        return category.toUpperCase() + "\nBudget: " + budget + "\nSpending: " + spending;
+        return category.toUpperCase() + "\nlimit: " + getlimit() + "\nSpending: " + getSpending();
     }
 }
