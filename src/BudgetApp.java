@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,8 +22,11 @@ public class BudgetApp {
             if (scanner.hasNextLine()) scanner.nextLine();
 
             categories.add(idx, category);
+            System.out.println(categories.get(idx));
+            idx++;
         }
 
+        Collections.sort(categories);
         System.out.println(categories);
 
     }
