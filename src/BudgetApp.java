@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 public class BudgetApp {
     public static void main(String[] args) {
-        // BudgetCategory groceries = new BudgetCategory("Groceries", 100, 50);
-        // System.out.println(groceries);
-
         Scanner scanner = new Scanner(System.in);
 
         List<BudgetCategory> categories = new ArrayList<>();
@@ -18,7 +15,6 @@ public class BudgetApp {
             double limit = scanner.nextDouble();
             double spent = scanner.nextDouble();
             BudgetCategory category = new BudgetCategory(categoryStr, limit, spent);
-
             
             if (scanner.hasNextLine()) scanner.nextLine();
             
@@ -35,11 +31,17 @@ public class BudgetApp {
         // sort the categories ArrayList in reverse order
         Collections.sort(categories, Collections.reverseOrder());
         
-        // print categories
-        System.out.println(categories);
+        // print categories in reverse order based on how much over or under a budget is a for a particular category
+        System.out.println("*** How much over or under the budget is for a particular category - REVERSE ORDER ***");
+        for (BudgetCategory category : categories) {
+            System.out.println(category);
+        }
         
         // print the sum of each budget difference for each category
-        System.out.println(budgetDifference(categories));
+        System.out.println("Budget difference: "+ budgetDifference(categories) + "\n");
+
+        // calculate and print the budget used for each category as a percentage
+        budgetUtilizationPercentage(categories);
     }
 
     /**
@@ -60,7 +62,33 @@ public class BudgetApp {
         for (BudgetCategory category : categories) {
             sum += category.getlimit() - category.getSpending();
         }
-
         return sum;
+    }
+
+
+    /**
+     * Calculates the budget used for each category individually as a percentage and prints values to console.
+     * 
+     * For example, if the spending for a particular category was 50.0 and the budget was 100.0, 
+     * then the percent of the budget for that particular category used is 50.0%.
+     * 
+     * This method does not calculate the overall budget percentage used across all categories nor
+     * does it calculate the percentage over or under budget is for a particular category.
+     * 
+     * @param categories the list of budget categories
+     */
+    public static void budgetUtilizationPercentage(List<BudgetCategory> categories) {
+        double fractionalBudgetUsed = 0.0;
+        double percentageBudgetUsed = 0.0;
+
+        System.out.println("*** Overall % Budget Used for Each Category ***");
+        for (BudgetCategory category : categories) {
+            fractionalBudgetUsed = category.getSpending() / category.getlimit();
+            percentageBudgetUsed = fractionalBudgetUsed * 100.0;
+            
+            
+            System.out.println(category.getCategory().toUpperCase() + ": " + String.format("%.2f", percentageBudgetUsed) + "%");
+        }
+        System.out.println("");
     }
 }
