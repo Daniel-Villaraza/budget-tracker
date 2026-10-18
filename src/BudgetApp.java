@@ -72,8 +72,8 @@ public class BudgetApp {
      * For example, if the spending for a particular category was 50.0 and the budget was 100.0, 
      * then the percent of the budget for that particular category used is 50.0%.
      * 
-     * This method does not calculate the overall budget percentage used across all categories nor
-     * does it calculate the percentage over or under budget is for a particular category.
+     * This method does not calculate the overall budget percentage used across all categories together nor
+     * does it calculate the percentage over or under budget a particular category is.
      * 
      * @param categories the list of budget categories
      */
