@@ -25,13 +25,14 @@ public class BudgetCategory implements Comparable<BudgetCategory> {
         return category.toUpperCase() + "\nLimit: " + getlimit() + "\nSpending: " + getSpending() + "\n";
     }
 
+    // NOTE: logic in compareTo method varies from partner slightly
     public int compareTo(BudgetCategory otherCategory) {
         if (limit - spending > otherCategory.limit - otherCategory.spending) {
             return -1;
         } else if (limit - spending == otherCategory.limit - otherCategory.spending) {
             return 0;
         }
-
+    
         return 1;
     }
 }

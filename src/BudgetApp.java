@@ -75,6 +75,8 @@ public class BudgetApp {
      * This method does not calculate the overall budget percentage used across all categories together nor
      * does it calculate the percentage over or under budget a particular category is.
      * 
+     * NOTE: this method was implemented differently by partner and is implemented in their BudgetCategory.java class instead of this class
+     * 
      * @param categories the list of budget categories
      */
     public static void budgetUtilizationPercentage(List<BudgetCategory> categories) {
