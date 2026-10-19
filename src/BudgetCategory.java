@@ -21,6 +21,7 @@ public class BudgetCategory implements Comparable<BudgetCategory> {
         return spending;
     }
 
+    // NOTE: partner's toString method varies slightly
     public String toString() {
         return category.toUpperCase() + "\nLimit: " + getlimit() + "\nSpending: " + getSpending() + "\n";
     }
